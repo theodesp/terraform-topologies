@@ -25,3 +25,5 @@ override.tf.json
 #
 # !example_override.tf
 .idea
+staging_key.*
+plan-*
