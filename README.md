@@ -6,7 +6,9 @@ Take it and use it
 
 ## Topologies
 
-1. *VPC*: See [article](https://dev.to/duduribeiro/creating-your-cloud-servers-with-terraform-2lpd)
+* AWS
+    1. *instance-with-ip*: EC2 with Elastic IP.
+    2. *VPC*: AWS VPC Application. See [article](https://dev.to/duduribeiro/creating-your-cloud-servers-with-terraform-2lpd)
 
 
 
