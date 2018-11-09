@@ -6,8 +6,15 @@ Take it and use it
 
 ## Topologies
 
-1. *VPC*: See [article](https://dev.to/duduribeiro/creating-your-cloud-servers-with-terraform-2lpd)
+#### General
+General example topologies
+1. **Modules**: Using modules and local_exec
 
+#### AWS
+Amazon web services specific.
+
+1. **Instance with Ip**: Single instance with elastic ip
+2. **VPC**: See [article](https://dev.to/duduribeiro/creating-your-cloud-servers-with-terraform-2lpd)
 
 
 ## LICENCE
