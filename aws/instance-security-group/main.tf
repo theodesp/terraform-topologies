@@ -2,23 +2,27 @@ provider "aws" {
   region = "${var.region}"
 }
 
-data "aws_ip_ranges" "us_east_ec2" {
-  regions = [ "us-east-1", "us-east-2" ]
-  services = [ "ec2" ]
+# group definition
+resource "aws_iam_group" "administrators" {
+  name = "administrators"
 }
-
-resource "aws_security_group" "from_us" {
-  name = "from_us"
-
-  ingress {
-    from_port = "443"
-    to_port = "443"
-    protocol = "tcp"
-    cidr_blocks = [ "${data.aws_ip_ranges.us_east_ec2.cidr_blocks}" ]
-  }
-  tags {
-    CreateDate = "${data.aws_ip_ranges.us_east_ec2.create_date}"
-    SyncToken = "${data.aws_ip_ranges.us_east_ec2.sync_token}"
-  }
-
+resource "aws_iam_policy_attachment" "administrators-attach" {
+  name = "administrators-attach"
+  groups = ["${aws_iam_group.administrators.name}"]
+  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
+}
+# user
+resource "aws_iam_user" "admin1" {
+  name = "admin1"
+}
+resource "aws_iam_user" "admin2" {
+  name = "admin2"
+}
+resource "aws_iam_group_membership" "administrators-users" {
+  name = "administrators-users"
+  users = [
+    "${aws_iam_user.admin1.name}",
+    "${aws_iam_user.admin2.name}",
+  ]
+  group = "${aws_iam_group.administrators.name}"
 }

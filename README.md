@@ -19,7 +19,8 @@ Amazon web services specific.
 2. **instance-with-provision-and-key-pair**: Single instance with elastic ip and local provision with ssh keys.
 3. **Setup security groups**: Security Group.
 4. **Instance with EBS**: Instance with EBS volume.
-5. **VPC**: See [article](https://dev.to/duduribeiro/creating-your-cloud-servers-with-terraform-2lpd)
+5. **IAM**: Example with Iam policy.
+6. **VPC**: See [article](https://dev.to/duduribeiro/creating-your-cloud-servers-with-terraform-2lpd)
 ![img](./aws/vpc-example/vpc-1.png)
 
 
